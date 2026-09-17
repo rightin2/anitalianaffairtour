@@ -11,7 +11,14 @@ To serve it locally instead:
 
     python3 -m http.server 8787 --directory website
 
-## Publish it
+## Where it lives
+
+Live at https://anitalianaffairtours.com, served by GitHub Pages from the `main` branch of
+https://github.com/rightin2/anitalianaffairtour. DNS is at Cloudflare: four A records for `@`
+to GitHub's addresses and a `www` CNAME to `rightin2.github.io`, all DNS only (grey cloud).
+To update the site, commit in this folder and `git push`; it is live within about a minute.
+
+## Publish it elsewhere
 
 Upload the whole `website` folder to any static host (Netlify drop, Cloudflare Pages,
 GitHub Pages, or an `anitalianaffair.com.au` subfolder). `index.html` must sit next to `img/`.
