@@ -50,6 +50,19 @@ to the gathering in Venice, animated route ribbon, counters, chapter covers with
 kinetic titles, photo mosaics with a custom cursor and a swipeable lightbox, side thread
 navigation on wide screens, a full-screen menu on phones, and a music button bottom left with a fade in and out.
 
+## Layout system
+
+One set of tokens in `:root` drives every dimension, so proportions stay consistent at any size:
+
+- `--maxw` 1240px content column, `--pad` the side padding, `--gut` the leftover gutter.
+- The nav and the hero controls use the same column as the body text, so the logo lines up
+  with the first word of every paragraph at every width.
+- Vertical rhythm is width-based (`vw`), never height-based, so a short laptop screen and a
+  tall monitor get the same proportions rather than different ones.
+- Long-form columns are capped at `34rem` (about 64 characters) for readability.
+- The side thread sits in the gutter and only appears at 1348px and above; its labels only
+  at 1560px and above, where they fit beside the column without touching it.
+
 ## Design notes
 
 Colours, type and shapes follow the brochure: sage `#d4e6c6` and `#eef5e9`, olive `#6b5733`,
