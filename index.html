@@ -182,6 +182,15 @@ img.ld{opacity:1 !important}
 .ribbon svg{width:100%;height:auto;display:block;overflow:visible}
 .ribbon path{fill:none;stroke:var(--terra);stroke-width:1.5;stroke-linecap:round}
 .ribbon .ghost{stroke:var(--line);stroke-dasharray:3 6}
+#pre{stroke:var(--terra);stroke-width:2.4;stroke-dasharray:0.1 7;stroke-linecap:round;opacity:0;transition:opacity .4s}
+.ast{background:none;border:0;padding:0 0 0 3px;margin:0;color:var(--terra);font:inherit;font-weight:500;font-size:1.15em;line-height:1;cursor:help;vertical-align:top}
+.ast:focus-visible{outline:1px solid var(--terra);outline-offset:2px;border-radius:2px}
+.tip{position:absolute;left:50%;top:calc(100% + 12px);transform:translateX(-50%) translateY(4px);width:min(270px,70vw);padding:12px 14px 13px;background:var(--cream);border:1px solid var(--line);border-radius:4px;box-shadow:0 16px 36px -18px rgba(58,43,20,.5);font-size:.74rem;line-height:1.55;color:var(--grey);text-align:left;font-style:normal;letter-spacing:0;opacity:0;pointer-events:none;transition:opacity .3s var(--ease),transform .3s var(--ease);z-index:6}
+.tip::before{content:"";position:absolute;left:50%;top:-6px;width:10px;height:10px;background:var(--cream);border-left:1px solid var(--line);border-top:1px solid var(--line);transform:translateX(-50%) rotate(45deg)}
+.tip b{display:inline;font-weight:500;color:var(--olive);font-size:inherit;letter-spacing:0}
+.lab:hover .tip,.lab.open .tip,.lab:focus-within .tip{opacity:1;transform:translateX(-50%);pointer-events:auto}
+.ribbon-list .note{display:block;font-size:.8rem;line-height:1.55;color:var(--grey);margin-top:5px;max-width:34rem}
+.ribbon-list .note b{display:inline;font-weight:500;color:var(--olive)}
 .ribbon .rg{font-family:"IBM Plex Sans";font-style:italic;font-weight:200;font-size:30px;letter-spacing:.18em;text-transform:uppercase;fill:var(--olive);opacity:.16}
 #mk{fill:var(--terra);opacity:0;transition:opacity .4s}
 #mk.on{opacity:1}
@@ -493,9 +502,10 @@ img.ld{opacity:1 !important}
         <text class="rg" x="960" y="236" text-anchor="middle">Umbria</text>
         <path class="ghost" d="M 120 310 C 250 170, 370 170, 490 260 S 690 350, 820 250 S 1000 160, 1090 245"/>
         <path id="route" d="M 120 310 C 250 170, 370 170, 490 260 S 690 350, 820 250 S 1000 160, 1090 245"/>
+        <path id="pre" d=""/>
         <circle id="mk" r="4.5" cx="120" cy="310"/>
       </svg>
-      <div class="stop" data-at="0.01" data-side="up"></div><div class="tick up" data-at="0.01"></div><div class="lab" data-at="0.01" data-side="up"><em>13 June</em><b>Venice</b><i>We gather on the evening of 13 June</i></div>
+      <div class="stop" data-at="0.01" data-side="up"></div><div class="tick up" data-at="0.01"></div><div class="lab" data-at="0.01" data-side="up"><em>13 June</em><b>Venice<button class="ast" type="button" aria-label="About the Venice evening" aria-expanded="false" aria-describedby="venice-tip">*</button></b><i>Optional informal gathering</i><div class="tip" id="venice-tip" role="tooltip"><b>Before the tour begins.</b> Antonella will come to Venice on the evening of 13 June to meet those arriving there, so the group can gather informally and travel together by private transfer to Asolo the next morning. That transfer is included. Accommodation, meals, drinks and any other expenses in Venice before 14 June are at your own expense, and you may instead make your own way directly to Asolo.</div></div>
       <div class="stop" data-at="0.20" data-side="dn"></div><div class="tick dn" data-at="0.20"></div><div class="lab" data-at="0.20" data-side="dn"><em>14 to 18 June</em><b>Asolo</b><i><a href="https://albergoalsoleasolo.com" target="_blank" rel="noopener">Albergo al Sole</a> &middot; 4 nights</i></div>
       <div class="stop" data-at="0.40" data-side="up"></div><div class="tick up" data-at="0.40"></div><div class="lab" data-at="0.40" data-side="up"><em>18 to 22 June</em><b>Lucca</b><i><a href="https://thetuscanian.com" target="_blank" rel="noopener">The Tuscanian</a> &middot; 4 nights</i></div>
       <div class="stop" data-at="0.55" data-side="dn"></div><div class="tick dn" data-at="0.55"></div><div class="lab" data-at="0.55" data-side="dn"><em>By private boat</em><b>Cinque Terre</b><i>A day on the Ligurian coast</i></div>
@@ -503,7 +513,7 @@ img.ld{opacity:1 !important}
       <div class="stop" data-at="0.99" data-side="dn"></div><div class="tick dn" data-at="0.99"></div><div class="lab" data-at="0.99" data-side="dn"><em>25 to 27 June</em><b>Scheggino</b><i><a href="https://torredelnera.it" target="_blank" rel="noopener">Torre del Nera</a> &middot; 2 nights</i></div>
     </div>
     <ul class="ribbon-list">
-      <li><em>13 June</em><b>Venice</b><i>We gather on the evening of 13 June</i></li>
+      <li><em>13 June</em><b>Venice *</b><i>Optional informal gathering</i><span class="note"><b>Before the tour begins.</b> Antonella will come to Venice on the evening of 13 June to meet those arriving there, so the group can gather informally and travel together by private transfer to Asolo the next morning. That transfer is included. Accommodation, meals, drinks and any other expenses in Venice before 14 June are at your own expense, and you may instead make your own way directly to Asolo.</span></li>
       <li><em>14 to 18 June</em><b>Asolo</b><i><a href="https://albergoalsoleasolo.com" target="_blank" rel="noopener">Albergo al Sole</a> &middot; 4 nights</i></li>
       <li><em>18 to 22 June</em><b>Lucca</b><i><a href="https://thetuscanian.com" target="_blank" rel="noopener">The Tuscanian</a> &middot; 4 nights</i></li>
       <li><em>By private boat</em><b>Cinque Terre</b><i>A day on the Ligurian coast</i></li>
@@ -752,6 +762,7 @@ img.ld{opacity:1 !important}
         <div class="blk"><h4>Size</h4><p>Small groups. For this offering 8&ndash;10 participants.</p></div>
         <div class="blk"><h4>Not Included</h4><ul>
           <li>Airfares, airline taxes and travel insurance.</li>
+          <li>Accommodation, meals, drinks and any other expenses in Venice before the tour begins on 14 June.</li>
           <li>Anything not listed above in the Tour Highlights and Inclusions.</li>
           <li>Museum entry fees and extras not specifically listed in the inclusions.</li>
         </ul></div>
@@ -762,6 +773,10 @@ img.ld{opacity:1 !important}
           <div class="price">A$<span data-money="17100">0</span> <small>per person twin share (land content only). Single-room supplement: A$<span data-money="2900">0</span>.</small></div>
           <p style="margin-top:22px">A non-refundable deposit of 30% of the tour price is required at the time of booking. Full payment is due by Thursday 15 April 2027, 60 days before the tour begins.</p>
           <p>Subject to currency surcharges prior to final payment.</p>
+        </div>
+        <div class="blk"><h4>Before the tour begins</h4>
+          <p>The tour begins in Asolo on 14 June. Antonella makes herself available to come to Venice on the evening of 13 June to meet those arriving there, so that the group may gather informally and travel together by private transfer to Asolo the following morning. That transfer is included in the tour arrangements.</p>
+          <p>Any accommodation, meals, drinks or other expenses in Venice before the tour begins on 14 June are entirely at your own expense. Alternatively, you may choose to make your own way directly to Asolo. Once everyone has confirmed their participation and travel plans, the details will be coordinated together.</p>
         </div>
         <div class="blk"><h4>Our Accommodations</h4><p>Our accommodations in Asolo, Lucca, Poreta and Scheggino are boutique offerings in historic centres and the countryside.</p></div>
         <div class="blk"><h4>Tour Suitability</h4>
@@ -932,7 +947,14 @@ img.ld{opacity:1 !important}
   var mk = document.getElementById('mk');
   var parts = [].slice.call(ribbon.querySelectorAll('[data-at]'));
   var L = route.getTotalLength();
-  route.style.strokeDasharray = L; route.style.strokeDashoffset = L;
+  /* the Venice to Asolo stretch is optional: drawn as dots, the tour proper is solid from Asolo */
+  var PRE = 0.20, pre = document.getElementById('pre');
+  (function(){
+    var pts = [];
+    for(var i = 0; i <= 28; i++){ var q = route.getPointAtLength(L * PRE * i / 28); pts.push(q.x.toFixed(1) + ' ' + q.y.toFixed(1)); }
+    pre.setAttribute('d', 'M ' + pts.join(' L '));
+  })();
+  route.style.strokeDasharray = '0 ' + (PRE * L) + ' 0 ' + L;
   function placeStops(){
     var box = ribbon.querySelector('svg').getBoundingClientRect();
     if(!box.width || !isFinite(L) || !L) return;
@@ -955,6 +977,18 @@ img.ld{opacity:1 !important}
     });
   }
   placeStops();
+  /* asterisk: hover shows the note on desktop, a tap toggles it on touch */
+  (function(){
+    var ast = ribbon.querySelector('.ast'); if(!ast) return;
+    var lab = ast.closest('.lab');
+    ast.addEventListener('click', function(e){
+      e.stopPropagation();
+      var open = lab.classList.toggle('open');
+      ast.setAttribute('aria-expanded', open);
+    });
+    document.addEventListener('click', function(e){ if(!lab.contains(e.target)){ lab.classList.remove('open'); ast.setAttribute('aria-expanded','false'); } });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ lab.classList.remove('open'); ast.setAttribute('aria-expanded','false'); } });
+  })();
   function drawRoute(){
     var r = ribbon.getBoundingClientRect(); var vh = window.innerHeight;
     if(!vh || !isFinite(L) || !L) return;
@@ -962,7 +996,8 @@ img.ld{opacity:1 !important}
     var p = (vh * 0.92 - r.top) / (vh * 0.75);
     p = isFinite(p) ? Math.max(0, Math.min(1, p)) : 0;
     if(reduce) p = 1;
-    route.style.strokeDashoffset = L * (1 - p);
+    route.style.strokeDasharray = '0 ' + (PRE * L) + ' ' + (Math.max(0, p - PRE) * L) + ' ' + L;
+    pre.style.opacity = Math.min(1, p / PRE);
     var pt = route.getPointAtLength(L * p);
     mk.setAttribute('cx', pt.x); mk.setAttribute('cy', pt.y);
     mk.classList.toggle('on', p > 0.005 && p < 0.995);
