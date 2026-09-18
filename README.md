@@ -46,7 +46,8 @@ Tour Highlights and Visit lists.
 ## Features
 
 Intro veil, full-screen slideshow with Ken Burns drift and a no-dip crossfade, live countdown
-to the gathering in Venice, animated route ribbon, counters, chapter covers with parallax and
+to the gathering in Venice, a scroll-driven route map (three region bands, private transfers on
+the line, the Cinque Terre day trip as a spur onto the water; a vertical version on phones), counters, chapter covers with parallax and
 kinetic titles, photo mosaics with a custom cursor and a swipeable lightbox, side thread
 navigation on wide screens, a full-screen menu on phones, and a music button bottom left with a fade in and out.
 
