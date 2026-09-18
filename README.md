@@ -66,9 +66,15 @@ One set of tokens in `:root` drives every dimension, so proportions stay consist
 
 ## Updating the availability line
 
-The hero carries a small pill under the countdown: "3 spots sold, 7 left". It is plain text in
-`index.html` (search for `class="spots"`), so change the two numbers there and push. The tour
+The hero carries a small pill under the countdown: "6 spots sold, 4 left". It is plain text in
+`index.html` (search for `id="spots-line"`), so change the two numbers there and push. The tour
 takes eight to ten travellers, so the pair should add up to ten.
+
+That one line is also the only thing to edit. A returning visitor whose browser remembers a
+lower number sees a notice in the top right (bottom of the screen on a phone): "Since your last
+visit, N places have been taken, leaving M." It reads the figure straight out of the pill, stores
+it in that browser's local storage, and stays silent on a first visit or when nothing has moved.
+It dismisses on the cross or after fourteen seconds.
 
 ## Ambient background
 

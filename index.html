@@ -365,6 +365,16 @@ img.ld{opacity:1 !important}
 #music span.t{white-space:nowrap;max-width:0;opacity:0;overflow:hidden;margin-left:-9px;transition:max-width .45s var(--ease),opacity .3s var(--ease),margin-left .45s var(--ease)}
 @media(hover:hover) and (pointer:fine){#music:hover span.t{max-width:92px;opacity:1;margin-left:0}}
 
+/* ---------- returning-visitor toast ---------- */
+#toast{position:fixed;top:calc(96px + env(safe-area-inset-top));right:calc(18px + env(safe-area-inset-right));z-index:118;width:min(310px,calc(100vw - 36px));padding:15px 42px 16px 17px;background:rgba(251,250,245,.96);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid var(--line);border-left:3px solid var(--terra);border-radius:5px;box-shadow:0 22px 48px -22px rgba(58,43,20,.55);opacity:0;transform:translateX(18px);transition:opacity .6s var(--ease),transform .7s var(--ease);pointer-events:none}
+#toast.on{opacity:1;transform:none;pointer-events:auto}
+#toast .t{font-family:"IBM Plex Sans Condensed";font-weight:600;font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:var(--terra);display:block;margin-bottom:6px}
+#toast p{margin:0;font-size:.86rem;line-height:1.5;color:var(--grey)}
+#toast p b{font-weight:500;color:var(--olive)}
+#toast .x{position:absolute;top:8px;right:8px;width:26px;height:26px;border:0;background:none;color:var(--olive-soft);font-size:1rem;line-height:1;cursor:pointer;border-radius:99px;transition:color .3s,background .3s}
+#toast .x:hover{color:var(--olive);background:rgba(107,87,51,.08)}
+@media(max-width:860px){#toast{top:auto;bottom:calc(74px + env(safe-area-inset-bottom));right:12px;left:12px;width:auto}}
+
 /* ---------- ambient background ---------- */
 #amb{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
 #amb .st{position:absolute;inset:0;opacity:0;transition:opacity 2600ms ease-in-out}
@@ -465,7 +475,7 @@ img.ld{opacity:1 !important}
       <div class="dates">14 June ~ 27 June 2027</div>
       <div class="regions">Veneto &nbsp;&middot;&nbsp; Tuscany &nbsp;&middot;&nbsp; Umbria</div>
       <div class="count" id="count"></div>
-      <div class="spots"><i></i>3 spots sold, 7 left</div>
+      <div class="spots"><i></i><span id="spots-line">6 spots sold, 4 left</span></div>
     </div>
   </div>
   <div class="hero-foot">
@@ -885,6 +895,11 @@ img.ld{opacity:1 !important}
   <span class="t">Music</span>
 </button>
 <audio id="track" loop preload="auto"><source src="audio/music.m4a" type="audio/mp4"><source src="audio/music.mp3" type="audio/mpeg"></audio>
+<div id="toast" role="status" aria-live="polite" hidden>
+  <button class="x" type="button" aria-label="Dismiss">&#10005;</button>
+  <span class="t">Since your last visit</span>
+  <p id="toast-msg"></p>
+</div>
 <div id="cur">View</div>
 <div id="lb" role="dialog" aria-modal="true" aria-label="Photograph">
   <button class="x" aria-label="Close">&#10005;</button>
@@ -1185,6 +1200,27 @@ img.ld{opacity:1 !important}
   document.querySelectorAll('nav ul a').forEach(function(a){
     a.addEventListener('click', function(){ nav.classList.remove('open'); burger.setAttribute('aria-expanded','false'); document.body.style.overflow = ''; });
   });
+
+  /* ---- returning-visitor notice: compares the places sold now against what this browser
+     saw last time, and says so only when the number has actually moved ---- */
+  (function(){
+    var line = document.getElementById('spots-line'), toast = document.getElementById('toast');
+    if(!line || !toast) return;
+    var m = /^\s*(\d+)\s+spots? sold/i.exec(line.textContent);
+    if(!m) return;
+    var sold = +m[1], KEY = 'aia-spots-seen', prev = null;
+    try { var v = localStorage.getItem(KEY); if(v !== null && v !== '') prev = +v; } catch(e){ return; }
+    try { localStorage.setItem(KEY, sold); } catch(e){}
+    if(prev === null || !(sold > prev)) return;          /* first visit, or nothing has moved */
+    var gone = sold - prev, left = Math.max(0, 10 - sold);
+    document.getElementById('toast-msg').innerHTML =
+      '<b>' + gone + (gone === 1 ? ' place has' : ' places have') + '</b> been taken since you were last here' +
+      (left > 0 ? ', leaving <b>' + left + (left === 1 ? ' place' : ' places') + '</b>.' : '. The tour is now full.');
+    function close(){ toast.classList.remove('on'); setTimeout(function(){ toast.hidden = true; }, 700); }
+    toast.querySelector('.x').addEventListener('click', close);
+    setTimeout(function(){ toast.hidden = false; setTimeout(function(){ toast.classList.add('on'); }, 30); }, 2600);
+    setTimeout(close, 14000);
+  })();
 
   /* ---- ambient background: a slow playlist of studies, driven by the wall clock so the
      page carries on where it left off rather than restarting on every visit ---- */
