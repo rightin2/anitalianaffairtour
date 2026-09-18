@@ -555,9 +555,9 @@ img.ld{opacity:1 !important}
       <g class="veh on-sage rv" data-at="0.88" transform="translate(1030,330)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
       <g class="act rv" data-at="0.46" transform="translate(792,462)"><g class="bob"><circle r="16"/><use href="#i-boat" x="-14" y="-9" width="28" height="16"/></g></g>
     </svg>
-      <svg class="rm rmap-m" id="rmm" viewBox="0 0 400 1100" role="img" aria-label="The route: Venice, Asolo, Lucca with a day trip to the Cinque Terre, Poreta and Scheggino">
+      <svg class="rm rmap-m" id="rmm" viewBox="0 0 320 1100" role="img" aria-label="The route: Venice, Asolo, Lucca with a day trip to the Cinque Terre, Poreta and Scheggino">
       <g class="bandg">
-        <rect class="band" x="0" y="20" width="400" height="280" rx="6"/><rect class="band b2" x="0" y="312" width="400" height="408" rx="6"/><rect class="band" x="0" y="732" width="400" height="328" rx="6"/>
+        <rect class="band" x="0" y="20" width="320" height="280" rx="6"/><rect class="band b2" x="0" y="312" width="320" height="408" rx="6"/><rect class="band" x="0" y="732" width="320" height="328" rx="6"/>
         <line class="brule" x1="24" y1="94" x2="200" y2="94"/><line class="brule" x1="24" y1="386" x2="200" y2="386"/><line class="brule" x1="24" y1="806" x2="200" y2="806"/>
         <text class="rg" x="24" y="62">Veneto</text><text class="rgs" x="24" y="82">Part one &middot; 14 to 18 June</text>
         <text class="rg" x="24" y="354">Tuscany</text><text class="rgs" x="24" y="374">Part two &middot; 18 to 22 June</text>
@@ -1247,7 +1247,7 @@ img.ld{opacity:1 !important}
     }
     document.addEventListener('visibilitychange', function(){
       if(document.hidden){ clearTimeout(timer); if(loop){ cancelAnimationFrame(loop); loop=null; } }
-      else { if(current==='pollen') pollen(true); tick(); }
+      else { if(current==='pollen') pollen(true); tick(); onScroll(); }
     });
     if(reduce){ show('goldenhour',0); current='goldenhour'; return; }
     tick();
