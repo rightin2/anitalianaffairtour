@@ -206,15 +206,18 @@ img.ld{opacity:1 !important}
 /* ---------- parts ---------- */
 .parts{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(22px,2.8vw,44px);margin-top:clamp(44px,4.5vw,76px)}
 .part{position:relative;padding-top:8px;color:var(--grey)}
-.part:hover{text-decoration:none}
+.part .go{display:block;color:inherit}
+.part .go:hover{text-decoration:none}
 .part .im{overflow:hidden;border-radius:var(--arch)}
 .part .im img{aspect-ratio:3/4;object-fit:cover;width:100%}
-.part:hover .im img{transform:scale(1.06)}
+.part .go:hover .im img{transform:scale(1.06)}
 .part .no{font-family:"IBM Plex Sans Condensed";font-weight:600;font-size:.68rem;letter-spacing:.26em;color:var(--terra);text-transform:uppercase;margin-top:22px;display:block}
 .part h3{font-size:clamp(1.2rem,1.7vw,1.55rem);font-style:italic;text-transform:uppercase;letter-spacing:.1em;margin:8px 0 12px;font-weight:300}
 .part .stay{border-top:1px solid var(--line);padding-top:12px;font-size:.88rem;line-height:1.6}
 .part .stay b{font-weight:500;color:var(--olive);display:block}
 .part .stay em{font-style:normal;color:var(--olive-soft);font-size:.82rem;letter-spacing:.06em}
+.part .stay a{display:inline-block;margin-top:1px;font-size:.8rem;font-style:italic;letter-spacing:.01em}
+.lab a,.ribbon-list a{color:var(--terra);text-decoration:underline;text-decoration-thickness:.5px;text-underline-offset:2px}
 @media(max-width:760px){.parts{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}}
 
 /* ---------- chapter ---------- */
@@ -493,38 +496,44 @@ img.ld{opacity:1 !important}
         <circle id="mk" r="4.5" cx="120" cy="310"/>
       </svg>
       <div class="stop" data-at="0.01" data-side="up"></div><div class="tick up" data-at="0.01"></div><div class="lab" data-at="0.01" data-side="up"><em>13 June</em><b>Venice</b><i>We gather on the evening of 13 June</i></div>
-      <div class="stop" data-at="0.20" data-side="dn"></div><div class="tick dn" data-at="0.20"></div><div class="lab" data-at="0.20" data-side="dn"><em>14 to 18 June</em><b>Asolo</b><i>Albergo al Sole &middot; 4 nights</i></div>
-      <div class="stop" data-at="0.40" data-side="up"></div><div class="tick up" data-at="0.40"></div><div class="lab" data-at="0.40" data-side="up"><em>18 to 22 June</em><b>Lucca</b><i>The Tuscanian &middot; 4 nights</i></div>
+      <div class="stop" data-at="0.20" data-side="dn"></div><div class="tick dn" data-at="0.20"></div><div class="lab" data-at="0.20" data-side="dn"><em>14 to 18 June</em><b>Asolo</b><i><a href="https://albergoalsoleasolo.com" target="_blank" rel="noopener">Albergo al Sole</a> &middot; 4 nights</i></div>
+      <div class="stop" data-at="0.40" data-side="up"></div><div class="tick up" data-at="0.40"></div><div class="lab" data-at="0.40" data-side="up"><em>18 to 22 June</em><b>Lucca</b><i><a href="https://thetuscanian.com" target="_blank" rel="noopener">The Tuscanian</a> &middot; 4 nights</i></div>
       <div class="stop" data-at="0.55" data-side="dn"></div><div class="tick dn" data-at="0.55"></div><div class="lab" data-at="0.55" data-side="dn"><em>By private boat</em><b>Cinque Terre</b><i>A day on the Ligurian coast</i></div>
-      <div class="stop" data-at="0.76" data-side="up"></div><div class="tick up" data-at="0.76"></div><div class="lab" data-at="0.76" data-side="up"><em>22 to 25 June</em><b>Poreta</b><i>Borgo della Marmotta &middot; 3 nights</i></div>
-      <div class="stop" data-at="0.99" data-side="dn"></div><div class="tick dn" data-at="0.99"></div><div class="lab" data-at="0.99" data-side="dn"><em>25 to 27 June</em><b>Scheggino</b><i>Torre del Nera &middot; 2 nights</i></div>
+      <div class="stop" data-at="0.76" data-side="up"></div><div class="tick up" data-at="0.76"></div><div class="lab" data-at="0.76" data-side="up"><em>22 to 25 June</em><b>Poreta</b><i><a href="https://leterrediporeta.it" target="_blank" rel="noopener">Borgo della Marmotta</a> &middot; 3 nights</i></div>
+      <div class="stop" data-at="0.99" data-side="dn"></div><div class="tick dn" data-at="0.99"></div><div class="lab" data-at="0.99" data-side="dn"><em>25 to 27 June</em><b>Scheggino</b><i><a href="https://torredelnera.it" target="_blank" rel="noopener">Torre del Nera</a> &middot; 2 nights</i></div>
     </div>
     <ul class="ribbon-list">
       <li><em>13 June</em><b>Venice</b><i>We gather on the evening of 13 June</i></li>
-      <li><em>14 to 18 June</em><b>Asolo</b><i>Albergo al Sole &middot; 4 nights</i></li>
-      <li><em>18 to 22 June</em><b>Lucca</b><i>The Tuscanian &middot; 4 nights</i></li>
+      <li><em>14 to 18 June</em><b>Asolo</b><i><a href="https://albergoalsoleasolo.com" target="_blank" rel="noopener">Albergo al Sole</a> &middot; 4 nights</i></li>
+      <li><em>18 to 22 June</em><b>Lucca</b><i><a href="https://thetuscanian.com" target="_blank" rel="noopener">The Tuscanian</a> &middot; 4 nights</i></li>
       <li><em>By private boat</em><b>Cinque Terre</b><i>A day on the Ligurian coast</i></li>
-      <li><em>22 to 25 June</em><b>Poreta</b><i>Borgo della Marmotta &middot; 3 nights</i></li>
-      <li><em>25 to 27 June</em><b>Scheggino</b><i>Torre del Nera &middot; 2 nights</i></li>
+      <li><em>22 to 25 June</em><b>Poreta</b><i><a href="https://leterrediporeta.it" target="_blank" rel="noopener">Borgo della Marmotta</a> &middot; 3 nights</i></li>
+      <li><em>25 to 27 June</em><b>Scheggino</b><i><a href="https://torredelnera.it" target="_blank" rel="noopener">Torre del Nera</a> &middot; 2 nights</i></li>
     </ul>
 
     <div class="parts">
-      <a class="part r d1" href="#veneto">
-        <div class="im"><img srcset="img/veneto-bronze-sm.webp 900w, img/veneto-bronze-lg.webp 2000w" sizes="(max-width:760px) 90vw, 30vw" src="img/veneto-bronze-sm.webp" alt="Veneto" loading="lazy" decoding="async" style="object-position:50% 30%"></div>
-        <span class="no">Part 1</span><h3>Veneto</h3>
-        <div class="stay"><b>Asolo &middot; 4 nights</b>14&ndash;18 June 2027<br><em>Albergo al Sole</em></div>
-      </a>
-      <a class="part r d2" href="#tuscany">
-        <div class="im"><img srcset="img/tuscany-fiat-vineyard-sm.webp 900w, img/tuscany-fiat-vineyard-lg.webp 2000w" sizes="(max-width:760px) 90vw, 30vw" src="img/tuscany-fiat-vineyard-sm.webp" alt="Tuscany" loading="lazy" decoding="async" style="object-position:50% 56%"></div>
-        <span class="no">Part 2</span><h3>Tuscany</h3>
-        <div class="stay"><b>Lucca &middot; 4 nights</b>18&ndash;22 June 2027<br><em>The Tuscanian</em></div>
-      </a>
-      <a class="part r d3" href="#umbria">
-        <div class="im"><img srcset="img/umbria-sunset-sm.webp 900w, img/umbria-sunset-lg.webp 2000w" sizes="(max-width:760px) 90vw, 30vw" src="img/umbria-sunset-sm.webp" alt="Umbria" loading="lazy" decoding="async" style="object-position:50% 22%"></div>
-        <span class="no">Part 3</span><h3>Umbria</h3>
-        <div class="stay"><b>Poreta &middot; 3 nights</b>22&ndash;25 June 2027<br><em>Borgo della Marmotta</em></div>
-        <div class="stay" style="margin-top:10px"><b>Scheggino &middot; 2 nights</b>25&ndash;27 June 2027<br><em>Torre del Nera</em></div>
-      </a>
+      <div class="part r d1">
+        <a class="go" href="#veneto">
+          <div class="im"><img srcset="img/veneto-bronze-sm.webp 900w, img/veneto-bronze-lg.webp 2000w" sizes="(max-width:760px) 90vw, 30vw" src="img/veneto-bronze-sm.webp" alt="Veneto" loading="lazy" decoding="async" style="object-position:50% 30%"></div>
+          <span class="no">Part 1</span><h3>Veneto</h3>
+        </a>
+        <div class="stay"><b>Asolo &middot; 4 nights</b>14&ndash;18 June 2027<br><em>Albergo al Sole</em><br><a href="https://albergoalsoleasolo.com" target="_blank" rel="noopener">albergoalsoleasolo.com</a></div>
+      </div>
+      <div class="part r d2">
+        <a class="go" href="#tuscany">
+          <div class="im"><img srcset="img/tuscany-fiat-vineyard-sm.webp 900w, img/tuscany-fiat-vineyard-lg.webp 2000w" sizes="(max-width:760px) 90vw, 30vw" src="img/tuscany-fiat-vineyard-sm.webp" alt="Tuscany" loading="lazy" decoding="async" style="object-position:50% 56%"></div>
+          <span class="no">Part 2</span><h3>Tuscany</h3>
+        </a>
+        <div class="stay"><b>Lucca &middot; 4 nights</b>18&ndash;22 June 2027<br><em>The Tuscanian</em><br><a href="https://thetuscanian.com" target="_blank" rel="noopener">thetuscanian.com</a></div>
+      </div>
+      <div class="part r d3">
+        <a class="go" href="#umbria">
+          <div class="im"><img srcset="img/umbria-sunset-sm.webp 900w, img/umbria-sunset-lg.webp 2000w" sizes="(max-width:760px) 90vw, 30vw" src="img/umbria-sunset-sm.webp" alt="Umbria" loading="lazy" decoding="async" style="object-position:50% 22%"></div>
+          <span class="no">Part 3</span><h3>Umbria</h3>
+        </a>
+        <div class="stay"><b>Poreta &middot; 3 nights</b>22&ndash;25 June 2027<br><em>Borgo della Marmotta</em><br><a href="https://leterrediporeta.it" target="_blank" rel="noopener">leterrediporeta.it</a></div>
+        <div class="stay" style="margin-top:10px"><b>Scheggino &middot; 2 nights</b>25&ndash;27 June 2027<br><em>Torre del Nera</em><br><a href="https://torredelnera.it" target="_blank" rel="noopener">torredelnera.it</a></div>
+      </div>
     </div>
   </div>
 </section>
@@ -926,6 +935,7 @@ img.ld{opacity:1 !important}
   route.style.strokeDasharray = L; route.style.strokeDashoffset = L;
   function placeStops(){
     var box = ribbon.querySelector('svg').getBoundingClientRect();
+    if(!box.width || !isFinite(L) || !L) return;
     var k = box.width / 1200, H = 460 * k, dot = 7, gap = 10;
     var half = (parseFloat(getComputedStyle(ribbon.querySelector('.lab')).width) || 190) / 2 + 4;
     parts.forEach(function(el){
@@ -947,8 +957,10 @@ img.ld{opacity:1 !important}
   placeStops();
   function drawRoute(){
     var r = ribbon.getBoundingClientRect(); var vh = window.innerHeight;
+    if(!vh || !isFinite(L) || !L) return;
     if(r.bottom < -100 || r.top > vh + 100) return;
-    var p = Math.max(0, Math.min(1, (vh * 0.92 - r.top) / (vh * 0.75)));
+    var p = (vh * 0.92 - r.top) / (vh * 0.75);
+    p = isFinite(p) ? Math.max(0, Math.min(1, p)) : 0;
     if(reduce) p = 1;
     route.style.strokeDashoffset = L * (1 - p);
     var pt = route.getPointAtLength(L * p);
