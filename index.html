@@ -125,6 +125,10 @@ nav.open .burger span:last-child{transform:translateY(-3.75px) rotate(-45deg)}
 .hero-in .regions{margin-top:14px;font-size:.74rem;letter-spacing:.42em;text-transform:uppercase;color:rgba(255,255,255,.78);font-weight:400}
 .hero-in .count{margin-top:26px;font-size:.8rem;font-style:italic;letter-spacing:.08em;color:rgba(255,255,255,.72);font-weight:300}
 .hero-in .count b{font-weight:400;color:#fff}
+.hero-in .spots{display:inline-flex;align-items:center;gap:9px;margin-top:16px;padding:7px 17px 7px 14px;border:1px solid rgba(255,255,255,.42);border-radius:99px;font-size:.7rem;letter-spacing:.17em;text-transform:uppercase;color:rgba(255,255,255,.92);font-weight:400;background:rgba(32,27,15,.26);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);white-space:nowrap}
+.hero-in .spots i{width:6px;height:6px;border-radius:99px;background:var(--terra);flex:none;animation:spotpulse 2.8s ease-out infinite}
+@keyframes spotpulse{0%{box-shadow:0 0 0 0 rgba(178,100,50,.55)}70%{box-shadow:0 0 0 8px rgba(178,100,50,0)}100%{box-shadow:0 0 0 0 rgba(178,100,50,0)}}
+@media(max-width:400px){.hero-in .spots{font-size:.64rem;letter-spacing:.14em;padding:6px 14px 6px 12px}}
 @keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 .hero-foot{position:absolute;left:0;right:0;bottom:calc(26px + env(safe-area-inset-bottom));z-index:4;display:flex;align-items:flex-end;justify-content:space-between;gap:26px;padding:0 var(--edge);color:#fff}
 .hero-foot .dots{position:absolute;left:50%;bottom:1px;transform:translateX(-50%)}
@@ -461,6 +465,7 @@ img.ld{opacity:1 !important}
       <div class="dates">14 June ~ 27 June 2027</div>
       <div class="regions">Veneto &nbsp;&middot;&nbsp; Tuscany &nbsp;&middot;&nbsp; Umbria</div>
       <div class="count" id="count"></div>
+      <div class="spots"><i></i>3 spots sold, 7 left</div>
     </div>
   </div>
   <div class="hero-foot">

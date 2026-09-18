@@ -64,6 +64,12 @@ One set of tokens in `:root` drives every dimension, so proportions stay consist
 - The side thread sits in the gutter and only appears at 1348px and above; its labels only
   at 1560px and above, where they fit beside the column without touching it.
 
+## Updating the availability line
+
+The hero carries a small pill under the countdown: "3 spots sold, 7 left". It is plain text in
+`index.html` (search for `class="spots"`), so change the two numbers there and push. The tour
+takes eight to ten travellers, so the pair should add up to ten.
+
 ## Ambient background
 
 A fixed layer (`#amb`) behind every section runs a slow playlist of four studies that cross-fade:
