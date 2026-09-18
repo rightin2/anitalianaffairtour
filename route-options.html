@@ -36,6 +36,9 @@ svg text{font-family:"IBM Plex Sans",sans-serif}
 .veh{color:var(--terra)}
 .veh circle{fill:var(--cream);stroke:var(--terra);stroke-width:1.2}
 .veh.on-sage circle{fill:var(--sage-pale)}
+.act{color:var(--olive)}
+.act circle{fill:var(--sage);stroke:var(--olive-soft);stroke-width:1.1}
+.act text{font-family:"IBM Plex Sans Condensed";font-weight:600;font-size:9px;letter-spacing:2px;fill:var(--olive-soft);text-transform:uppercase}
 .sea{fill:none;stroke:#7fa6b8;stroke-width:1.3;stroke-linecap:round;opacity:.85}
 .band{fill:var(--sage-pale)}
 .band.b2{fill:var(--cream)}
@@ -86,7 +89,7 @@ footer{padding:40px 0 80px;font-size:.9rem;border-top:1px solid var(--line)}
 <!-- ================= 1 ================= -->
 <section class="opt" id="o1"><div class="wrap">
   <div class="head"><span class="num">1</span><h2>The wave, with the regions on a shelf above</h2></div>
-  <p class="why">Closest to what is there now. The three regions become a header strip across the top, each spanning exactly the stretch of line it covers, so the names never sit under the path. Vehicles ride the line in small cream badges. The boat leg is drawn as water.</p>
+  <p class="why">Closest to what is there now. The three regions become a header strip across the top, each spanning exactly the stretch of line it covers, so the names never sit under the path. Private transfers ride the line in small cream badges; the Fiat 500s and the boat sit beside Lucca and Cinque Terre as activities.</p>
   <figure><svg viewBox="0 0 1200 520">
     <!-- region shelf -->
     <g class="fade">
@@ -106,15 +109,17 @@ footer{padding:40px 0 80px;font-size:.9rem;border-top:1px solid var(--line)}
     <g class="fade"><circle class="stop" cx="110" cy="360" r="7"/><line class="tick" x1="110" y1="352" x2="110" y2="128"/><text class="k" x="110" y="96" text-anchor="middle">13 June</text><text class="n" x="110" y="116" text-anchor="middle">Venice <tspan fill="var(--terra)" font-weight="500">*</tspan></text><text class="s" x="110" y="134" text-anchor="middle">Optional informal gathering</text></g>
     <g class="fade d1"><circle class="stop" cx="360" cy="250" r="7"/><line class="tick" x1="360" y1="258" x2="360" y2="404"/><text class="k" x="360" y="428" text-anchor="middle">14 to 18 June</text><text class="n" x="360" y="448" text-anchor="middle">Asolo</text><text class="s" x="360" y="466" text-anchor="middle">Albergo al Sole &middot; 4 nights</text></g>
     <g class="fade d2"><circle class="stop" cx="560" cy="326" r="7"/><line class="tick" x1="560" y1="318" x2="560" y2="128"/><text class="k" x="560" y="96" text-anchor="middle">18 to 22 June</text><text class="n" x="560" y="116" text-anchor="middle">Lucca</text><text class="s" x="560" y="134" text-anchor="middle">The Tuscanian &middot; 4 nights</text></g>
-    <g class="fade d3"><circle class="stop" cx="660" cy="340" r="7"/><line class="tick" x1="660" y1="348" x2="660" y2="404"/><text class="k" x="660" y="428" text-anchor="middle">By private boat</text><text class="n" x="660" y="448" text-anchor="middle">Cinque Terre</text><text class="s" x="660" y="466" text-anchor="middle">A day on the Ligurian coast</text></g>
+    <g class="fade d3"><circle class="stop" cx="660" cy="340" r="7"/><line class="tick" x1="660" y1="348" x2="660" y2="404"/><text class="k" x="660" y="428" text-anchor="middle">Day trip from Lucca</text><text class="n" x="660" y="448" text-anchor="middle">Cinque Terre</text><text class="s" x="660" y="466" text-anchor="middle">A day on the Ligurian coast</text></g>
     <g class="fade d4"><circle class="stop" cx="920" cy="300" r="7"/><line class="tick" x1="920" y1="292" x2="920" y2="128"/><text class="k" x="920" y="96" text-anchor="middle">22 to 25 June</text><text class="n" x="920" y="116" text-anchor="middle">Poreta</text><text class="s" x="920" y="134" text-anchor="middle">Borgo della Marmotta &middot; 3 nights</text></g>
     <g class="fade d5"><circle class="stop" cx="1120" cy="290" r="7"/><line class="tick" x1="1120" y1="298" x2="1120" y2="404"/><text class="k" x="1120" y="428" text-anchor="middle">25 to 27 June</text><text class="n" x="1120" y="448" text-anchor="middle">Scheggino</text><text class="s" x="1120" y="466" text-anchor="middle">Torre del Nera &middot; 2 nights</text></g>
     <!-- vehicles -->
     <g class="veh fade d1" data-on="#p1pre" data-at="0.5"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
-    <g class="veh fade d2" data-on="#p1" data-at="0.14"><circle r="17"/><use href="#i-car" x="-15" y="-8" width="30" height="15"/></g>
-    <g class="veh fade d3" data-on="#p1" data-at="0.325"><circle r="17"/><use href="#i-boat" x="-15" y="-9" width="30" height="17"/></g>
-    <g class="veh fade d4" data-on="#p1" data-at="0.56"><circle r="17"/><use href="#i-car" x="-15" y="-8" width="30" height="15"/></g>
-    <g class="veh fade d5" data-on="#p1" data-at="0.87"><circle r="17"/><use href="#i-car" x="-15" y="-8" width="30" height="15"/></g>
+    <g class="veh fade d2" data-on="#p1" data-at="0.14"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
+    <g class="veh fade d3" data-on="#p1" data-at="0.325"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
+    <g class="veh fade d4" data-on="#p1" data-at="0.56"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
+    <g class="veh fade d5" data-on="#p1" data-at="0.87"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
+    <g class="act fade d3" transform="translate(516,384)"><circle r="16"/><use href="#i-car" x="-14" y="-7.5" width="28" height="14"/><text x="0" y="32" text-anchor="middle">Fiat 500s</text></g>
+    <g class="act fade d3" transform="translate(706,382)"><circle r="16"/><use href="#i-boat" x="-14" y="-9" width="28" height="16"/><text x="0" y="-24" text-anchor="middle">Boat</text></g>
   </svg></figure>
   <p class="note">* Venice: optional informal gathering the evening before; transfer to Asolo included, Venice costs at your own expense.</p>
 </div></section>
@@ -122,7 +127,7 @@ footer{padding:40px 0 80px;font-size:.9rem;border-top:1px solid var(--line)}
 <!-- ================= 2 ================= -->
 <section class="opt" id="o2"><div class="wrap">
   <div class="head"><span class="num">2</span><h2>Three bands, one straight line</h2></div>
-  <p class="why">A metro-map idea. Each region is a soft sage band with its name set large at the top left, so the regions read first and the stops second. The line is dead straight and calm. Cinque Terre hangs off Lucca as a spur onto the water, which is truthful: it is a day out and back.</p>
+  <p class="why">A metro-map idea. Each region is a soft sage band with its name set large at the top left, so the regions read first and the stops second. The line is dead straight and calm. Cinque Terre hangs off Lucca as a spur, which is truthful: a day out by transfer, the boat along the coast, and back to Lucca.</p>
   <figure><svg viewBox="0 0 1200 480">
     <g class="fade">
       <rect class="band" x="0" y="20" width="440" height="430" rx="4"/>
@@ -141,14 +146,16 @@ footer{padding:40px 0 80px;font-size:.9rem;border-top:1px solid var(--line)}
     <g class="fade"><circle class="stop" cx="80" cy="250" r="7"/><text class="k" x="80" y="200" text-anchor="middle">13 June</text><text class="n" x="80" y="220" text-anchor="middle">Venice <tspan fill="var(--terra)" font-weight="500">*</tspan></text><text class="s" x="80" y="296" text-anchor="middle">Optional informal gathering</text></g>
     <g class="fade d1"><circle class="stop" cx="270" cy="250" r="7"/><text class="k" x="270" y="200" text-anchor="middle">14 to 18 June</text><text class="n" x="270" y="220" text-anchor="middle">Asolo</text><text class="s" x="270" y="296" text-anchor="middle">Albergo al Sole &middot; 4 nights</text></g>
     <g class="fade d2"><circle class="stop" cx="560" cy="250" r="7"/><text class="k" x="560" y="200" text-anchor="middle">18 to 22 June</text><text class="n" x="560" y="220" text-anchor="middle">Lucca</text><text class="s" x="560" y="296" text-anchor="middle">The Tuscanian &middot; 4 nights</text></g>
-    <g class="fade d3"><circle class="stop" cx="640" cy="340" r="7"/><text class="k" x="668" y="336" >By private boat</text><text class="n" x="668" y="356">Cinque Terre</text><text class="s" x="668" y="374">A day on the Ligurian coast</text></g>
+    <g class="fade d3"><circle class="stop" cx="640" cy="340" r="7"/><text class="k" x="668" y="336" >Day trip from Lucca</text><text class="n" x="668" y="356">Cinque Terre</text><text class="s" x="668" y="374">A day on the Ligurian coast</text></g>
     <g class="fade d4"><circle class="stop" cx="920" cy="250" r="7"/><text class="k" x="920" y="200" text-anchor="middle">22 to 25 June</text><text class="n" x="920" y="220" text-anchor="middle">Poreta</text><text class="s" x="920" y="296" text-anchor="middle">Borgo della Marmotta &middot; 3 nights</text></g>
     <g class="fade d5"><circle class="stop" cx="1130" cy="250" r="7"/><text class="k" x="1130" y="200" text-anchor="middle">25 to 27 June</text><text class="n" x="1130" y="220" text-anchor="middle">Scheggino</text><text class="s" x="1130" y="296" text-anchor="middle">Torre del Nera &middot; 2 nights</text></g>
     <g class="veh on-sage fade d1" transform="translate(175,250)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
-    <g class="veh fade d2" transform="translate(415,250)"><circle r="17"/><use href="#i-car" x="-15" y="-8" width="30" height="15"/></g>
-    <g class="veh fade d3" transform="translate(598,318)"><circle r="17"/><use href="#i-boat" x="-15" y="-9" width="30" height="17"/></g>
-    <g class="veh fade d4" transform="translate(740,250)"><circle r="17"/><use href="#i-car" x="-15" y="-8" width="30" height="15"/></g>
-    <g class="veh on-sage fade d5" transform="translate(1025,250)"><circle r="17"/><use href="#i-car" x="-15" y="-8" width="30" height="15"/></g>
+    <g class="veh fade d2" transform="translate(415,250)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
+    <g class="veh fade d3" transform="translate(598,318)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
+    <g class="veh fade d4" transform="translate(740,250)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
+    <g class="veh on-sage fade d5" transform="translate(1025,250)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
+    <g class="act fade d3" transform="translate(660,212)"><circle r="16"/><use href="#i-car" x="-14" y="-7.5" width="28" height="14"/><text x="26" y="4" text-anchor="start">Fiat 500s</text></g>
+    <g class="act fade d3" transform="translate(568,394)"><circle r="16"/><use href="#i-boat" x="-14" y="-9" width="28" height="16"/><text x="0" y="32" text-anchor="middle">Boat</text></g>
   </svg></figure>
 </div></section>
 
@@ -175,14 +182,16 @@ footer{padding:40px 0 80px;font-size:.9rem;border-top:1px solid var(--line)}
     <g class="fade"><circle class="stop" cx="70" cy="262" r="7"/><text class="k" x="70" y="204" text-anchor="middle">13 June</text><text class="n" x="70" y="224" text-anchor="middle">Venice <tspan fill="var(--terra)" font-weight="500">*</tspan></text><text class="s" x="70" y="242" text-anchor="middle">Optional gathering</text></g>
     <g class="fade d1"><circle class="stop" cx="340" cy="262" r="7"/><text class="k" x="340" y="204" text-anchor="middle">14 to 18 June</text><text class="n" x="340" y="224" text-anchor="middle">Asolo</text><text class="s" x="340" y="242" text-anchor="middle">Albergo al Sole &middot; 4 nights</text></g>
     <g class="fade d2"><circle class="stop" cx="600" cy="330" r="7"/><text class="k" x="600" y="272" text-anchor="middle">18 to 22 June</text><text class="n" x="600" y="292" text-anchor="middle">Lucca</text><text class="s" x="600" y="310" text-anchor="middle">The Tuscanian &middot; 4 nights</text></g>
-    <g class="fade d3"><circle class="stop" cx="660" cy="434" r="7"/><text class="k" x="684" y="488">By private boat</text><text class="n" x="684" y="508">Cinque Terre <tspan class="s">&middot; a day on the Ligurian coast</tspan></text></g>
+    <g class="fade d3"><circle class="stop" cx="660" cy="434" r="7"/><text class="k" x="684" y="488">Day trip from Lucca</text><text class="n" x="684" y="508">Cinque Terre <tspan class="s">&middot; a day on the Ligurian coast</tspan></text></g>
     <g class="fade d4"><circle class="stop" cx="960" cy="236" r="7"/><text class="k" x="960" y="164" text-anchor="middle">22 to 25 June</text><text class="n" x="960" y="184" text-anchor="middle">Poreta</text><text class="s" x="960" y="202" text-anchor="middle">Borgo della Marmotta</text><text class="s" x="960" y="218" text-anchor="middle">3 nights</text></g>
     <g class="fade d5"><circle class="stop" cx="1120" cy="236" r="7"/><text class="k" x="1120" y="164" text-anchor="middle">25 to 27 June</text><text class="n" x="1120" y="184" text-anchor="middle">Scheggino</text><text class="s" x="1120" y="202" text-anchor="middle">Torre del Nera</text><text class="s" x="1120" y="218" text-anchor="middle">2 nights</text></g>
     <g class="veh on-sage fade d1" transform="translate(205,262)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
-    <g class="veh fade d2" transform="translate(455,296)"><circle r="17"/><use href="#i-car" x="-15" y="-8" width="30" height="15"/></g>
-    <g class="veh fade d3" transform="translate(620,406)"><circle r="17"/><use href="#i-boat" x="-15" y="-9" width="30" height="17"/></g>
-    <g class="veh fade d4" transform="translate(845,283)"><circle r="17"/><use href="#i-car" x="-15" y="-8" width="30" height="15"/></g>
-    <g class="veh on-sage fade d5" transform="translate(1040,236)"><circle r="17"/><use href="#i-car" x="-15" y="-8" width="30" height="15"/></g>
+    <g class="veh fade d2" transform="translate(455,296)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
+    <g class="veh fade d3" transform="translate(620,406)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
+    <g class="veh fade d4" transform="translate(845,283)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
+    <g class="veh on-sage fade d5" transform="translate(1040,236)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
+    <g class="act fade d3" transform="translate(556,374)"><circle r="16"/><use href="#i-car" x="-14" y="-7.5" width="28" height="14"/><text x="0" y="32" text-anchor="middle">Fiat 500s</text></g>
+    <g class="act fade d3" transform="translate(742,448)"><circle r="16"/><use href="#i-boat" x="-14" y="-9" width="28" height="16"/><text x="0" y="-24" text-anchor="middle">Boat</text></g>
   </svg></figure>
 </div></section>
 
@@ -207,14 +216,16 @@ footer{padding:40px 0 80px;font-size:.9rem;border-top:1px solid var(--line)}
     <g class="fade"><circle class="stop" cx="60" cy="300" r="7"/><text class="k" x="30" y="510" text-anchor="start">13 June &middot; Venice <tspan fill="var(--terra)">*</tspan></text><text class="s" x="30" y="528" text-anchor="start">Optional informal gathering the evening before</text></g>
     <g class="fade d1"><circle class="stop" cx="225" cy="300" r="7"/><text class="k" x="225" y="250" text-anchor="middle">14 to 18 June</text><text class="n" x="225" y="270" text-anchor="middle">Asolo</text><text class="s" x="225" y="336" text-anchor="middle">Albergo al Sole</text><text class="s" x="225" y="354" text-anchor="middle">4 nights</text></g>
     <g class="fade d2"><circle class="stop" cx="600" cy="300" r="7"/><text class="k" x="600" y="250" text-anchor="middle">18 to 22 June</text><text class="n" x="600" y="270" text-anchor="middle">Lucca</text><text class="s" x="522" y="336" text-anchor="middle">The Tuscanian</text><text class="s" x="522" y="354" text-anchor="middle">4 nights</text></g>
-    <g class="fade d3"><circle class="stop" cx="600" cy="392" r="7"/><text class="k" x="600" y="448" text-anchor="middle">By private boat</text><text class="n" x="600" y="466" text-anchor="middle" font-size="14">Cinque Terre</text></g>
+    <g class="fade d3"><circle class="stop" cx="600" cy="392" r="7"/><text class="k" x="600" y="448" text-anchor="middle">Day trip from Lucca</text><text class="n" x="600" y="466" text-anchor="middle" font-size="14">Cinque Terre</text></g>
     <g class="fade d4"><circle class="stop" cx="900" cy="300" r="7"/><text class="k" x="900" y="250" text-anchor="middle">22 to 25 June</text><text class="n" x="900" y="270" text-anchor="middle">Poreta</text><text class="s" x="900" y="336" text-anchor="middle">Borgo della Marmotta</text><text class="s" x="900" y="354" text-anchor="middle">3 nights</text></g>
     <g class="fade d5"><circle class="stop" cx="1080" cy="300" r="7"/><text class="k" x="1080" y="250" text-anchor="middle">25 to 27 June</text><text class="n" x="1080" y="270" text-anchor="middle">Scheggino</text><text class="s" x="1080" y="336" text-anchor="middle">Torre del Nera</text><text class="s" x="1080" y="354" text-anchor="middle">2 nights</text></g>
     <g class="veh fade d1" transform="translate(120,300)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
-    <g class="veh fade d2" transform="translate(412,300)"><circle r="17"/><use href="#i-car" x="-15" y="-8" width="30" height="15"/></g>
-    <g class="veh on-sage fade d3" transform="translate(640,352)"><circle r="17"/><use href="#i-boat" x="-15" y="-9" width="30" height="17"/></g>
-    <g class="veh fade d4" transform="translate(787,300)"><circle r="17"/><use href="#i-car" x="-15" y="-8" width="30" height="15"/></g>
-    <g class="veh on-sage fade d5" transform="translate(990,300)"><circle r="17"/><use href="#i-car" x="-15" y="-8" width="30" height="15"/></g>
+    <g class="veh fade d2" transform="translate(412,300)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
+    <g class="veh on-sage fade d3" transform="translate(640,352)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
+    <g class="veh fade d4" transform="translate(787,300)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
+    <g class="veh on-sage fade d5" transform="translate(990,300)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
+    <g class="act fade d3" transform="translate(690,340)"><circle r="16"/><use href="#i-car" x="-14" y="-7.5" width="28" height="14"/><text x="0" y="32" text-anchor="middle">Fiat 500s</text></g>
+    <g class="act fade d3" transform="translate(704,396)"><circle r="16"/><use href="#i-boat" x="-14" y="-9" width="28" height="16"/><text x="0" y="32" text-anchor="middle">Boat</text></g>
   </svg></figure>
 </div></section>
 
@@ -239,20 +250,22 @@ footer{padding:40px 0 80px;font-size:.9rem;border-top:1px solid var(--line)}
     <g class="fade"><circle class="stop" cx="620" cy="40" r="7"/><text class="k" x="650" y="36">13 June</text><text class="n" x="650" y="56">Venice <tspan fill="var(--terra)" font-weight="500">*</tspan></text><text class="s" x="650" y="74">Optional informal gathering</text></g>
     <g class="fade d1"><circle class="stop" cx="620" cy="180" r="7"/><text class="k" x="590" y="176" text-anchor="end">14 to 18 June</text><text class="n" x="590" y="196" text-anchor="end">Asolo</text><text class="s" x="590" y="214" text-anchor="end">Albergo al Sole &middot; 4 nights</text></g>
     <g class="fade d2"><circle class="stop" cx="620" cy="330" r="7"/><text class="k" x="650" y="326">18 to 22 June</text><text class="n" x="650" y="346">Lucca</text><text class="s" x="650" y="364">The Tuscanian &middot; 4 nights</text></g>
-    <g class="fade d3"><circle class="stop" cx="780" cy="440" r="7"/><text class="k" x="806" y="436">By private boat</text><text class="n" x="806" y="456">Cinque Terre</text><text class="s" x="806" y="474" fill="var(--olive-soft)">A day on the Ligurian coast</text></g>
+    <g class="fade d3"><circle class="stop" cx="780" cy="440" r="7"/><text class="k" x="806" y="436">Day trip from Lucca</text><text class="n" x="806" y="456">Cinque Terre</text><text class="s" x="806" y="474" fill="var(--olive-soft)">A day on the Ligurian coast</text></g>
     <g class="fade d4"><circle class="stop" cx="620" cy="590" r="7"/><text class="k" x="590" y="586" text-anchor="end">22 to 25 June</text><text class="n" x="590" y="606" text-anchor="end">Poreta</text><text class="s" x="590" y="624" text-anchor="end">Borgo della Marmotta &middot; 3 nights</text></g>
     <g class="fade d5"><circle class="stop" cx="620" cy="720" r="7"/><text class="k" x="650" y="716">25 to 27 June</text><text class="n" x="650" y="736">Scheggino</text><text class="s" x="650" y="754">Torre del Nera &middot; 2 nights</text></g>
     <g class="veh on-sage fade d1" transform="translate(620,108)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
-    <g class="veh fade d2" transform="translate(620,258)"><circle r="17"/><use href="#i-car" x="-15" y="-8" width="30" height="15"/></g>
-    <g class="veh fade d3" transform="translate(704,410)"><circle r="17"/><use href="#i-boat" x="-15" y="-9" width="30" height="17"/></g>
-    <g class="veh on-sage fade d4" transform="translate(620,548)"><circle r="17"/><use href="#i-car" x="-15" y="-8" width="30" height="15"/></g>
-    <g class="veh on-sage fade d5" transform="translate(620,660)"><circle r="17"/><use href="#i-car" x="-15" y="-8" width="30" height="15"/></g>
+    <g class="veh fade d2" transform="translate(620,258)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
+    <g class="veh fade d3" transform="translate(704,410)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
+    <g class="veh on-sage fade d4" transform="translate(620,548)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
+    <g class="veh on-sage fade d5" transform="translate(620,660)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
+    <g class="act fade d3" transform="translate(568,330)"><circle r="16"/><use href="#i-car" x="-14" y="-7.5" width="28" height="14"/><text x="-26" y="4" text-anchor="end">Fiat 500s</text></g>
+    <g class="act fade d3" transform="translate(962,504)"><circle r="16"/><use href="#i-boat" x="-14" y="-9" width="28" height="16"/><text x="0" y="32" text-anchor="middle">Boat</text></g>
   </svg></figure>
 </div></section>
 
 <footer><div class="wrap">
   <p><b style="font-weight:500;color:var(--olive)">To pick one:</b> tell me the number. I will build it properly into the site with the hover note on Venice, the accommodation links, the scroll-driven drawing and the phone layout, and tune the crops, spacing and copy to match.</p>
-  <p class="note">Legs by road show a car; the Venice to Asolo transfer shows a minibus and is dotted because the evening is optional. The Cinque Terre leg is by private boat, out from Lucca and back the same day.</p>
+  <p class="note">Every leg is a private transfer, shown as a minibus on the line; Venice to Asolo is dotted because the evening is optional. The sage badges beside a stop are activities that happen there: the Fiat 500 drive in the centre of Lucca, and the boat along the Cinque Terre on a day out and back from Lucca.</p>
 </div></footer>
 
 <script>
