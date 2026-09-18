@@ -64,6 +64,19 @@ One set of tokens in `:root` drives every dimension, so proportions stay consist
 - The side thread sits in the gutter and only appears at 1348px and above; its labels only
   at 1560px and above, where they fit beside the column without touching it.
 
+## Ambient background
+
+A fixed layer (`#amb`) behind every section runs a slow playlist of four studies that cross-fade:
+a still rest, warm drifting blooms (golden hour), dappled olive-grove light, and pollen turning
+on the air. Adapted from the AMAPP background engine, re-tuned for a light page: the studies use
+`mix-blend-mode: multiply` in the brand palette instead of `screen` on navy.
+
+The playlist is driven by the wall clock, so reopening the page carries on where the loop is
+rather than restarting. The tinted sections are slightly translucent (76 to 84 per cent) so the
+motion reads through them; photographs and the olive contact panel stay opaque. Only one study
+runs at a time, the canvas loop stops when the tab is hidden, and `prefers-reduced-motion`
+pins a single still study.
+
 ## Design notes
 
 Colours, type and shapes follow the brochure: sage `#d4e6c6` and `#eef5e9`, olive `#6b5733`,

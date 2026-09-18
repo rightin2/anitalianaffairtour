@@ -24,9 +24,9 @@
   --ease:cubic-bezier(.22,.61,.36,1);--fade:cubic-bezier(.4,0,.2,1);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden;overflow-x:clip}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden;overflow-x:clip;background:var(--cream)}
 *{-webkit-tap-highlight-color:transparent}
-body{margin:0;background:var(--cream);color:var(--grey);font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:300;font-size:clamp(15.75px,.3vw + 14.6px,17px);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
+body{margin:0;background:transparent;color:var(--grey);font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:300;font-size:clamp(15.75px,.3vw + 14.6px,17px);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
 img{max-width:100%;display:block}
 a{color:var(--terra);text-decoration:none}
 a:hover{text-decoration:underline;text-underline-offset:3px}
@@ -42,11 +42,11 @@ h1,h2,h3,h4{font-weight:200;color:var(--olive);margin:0;line-height:1.14}
 .center .rule{margin-left:auto;margin-right:auto}
 
 /* ---------- layout ---------- */
-section{position:relative}
+section{position:relative;z-index:1}
 section[id],header[id]{scroll-margin-top:64px}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
 .pad{padding:clamp(56px,6vw,104px) 0}
-.bg-sage{background:var(--sage)}.bg-pale{background:var(--sage-pale)}.bg-cream{background:var(--cream)}
+.bg-sage{background:rgba(212,230,198,.84)}.bg-pale{background:rgba(238,245,233,.80)}.bg-cream{background:rgba(251,250,245,.76)}
 .center{text-align:center}
 
 /* ---------- veil ---------- */
@@ -105,7 +105,7 @@ nav.open .burger span:last-child{transform:translateY(-3.75px) rotate(-45deg)}
 @media(max-width:1300px){nav .brand span{display:none}}
 
 /* ---------- hero ---------- */
-.hero{height:100vh;height:100svh;min-height:600px;position:relative;overflow:hidden;background:#3d3422}
+.hero{height:100vh;height:100svh;min-height:600px;position:relative;z-index:1;overflow:hidden;background:#3d3422}
 .hero .slide{position:absolute;inset:0;opacity:0;transition:opacity 2.4s var(--fade)}
 .hero .slide.on{opacity:1;z-index:2}
 .hero .slide.out{opacity:1;z-index:1;transition:none}
@@ -273,7 +273,7 @@ img.ld{opacity:1 !important}
 @media(hover:hover) and (pointer:fine){.mosaic figure,.inc-im figure{cursor:none}}
 
 /* ---------- marquee ---------- */
-.mq{overflow:hidden;padding:clamp(22px,2.4vw,38px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--cream)}
+.mq{overflow:hidden;padding:clamp(22px,2.4vw,38px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(251,250,245,.76)}
 .mq .t{display:flex;width:max-content;animation:slide 46s linear infinite}
 .mq span{font-size:clamp(1rem,1.8vw,1.55rem);font-style:italic;text-transform:uppercase;letter-spacing:.16em;color:var(--olive);opacity:.32;white-space:nowrap;padding:0 .6em;font-weight:200}
 .mq b{color:var(--terra);opacity:.8;font-weight:200;padding:0 .2em}
@@ -361,6 +361,29 @@ img.ld{opacity:1 !important}
 #music span.t{white-space:nowrap;max-width:0;opacity:0;overflow:hidden;margin-left:-9px;transition:max-width .45s var(--ease),opacity .3s var(--ease),margin-left .45s var(--ease)}
 @media(hover:hover) and (pointer:fine){#music:hover span.t{max-width:92px;opacity:1;margin-left:0}}
 
+/* ---------- ambient background ---------- */
+#amb{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+#amb .st{position:absolute;inset:0;opacity:0;transition:opacity 2600ms ease-in-out}
+#amb .st.on{opacity:1}
+#amb .st[hidden]{display:none !important}
+#amb .st>*{position:absolute;inset:0}
+#amb canvas{width:100%;height:100%;display:block}
+/* golden hour: three warm bands breathing across the page */
+#amb .bnd{filter:blur(80px);mix-blend-mode:multiply;will-change:transform}
+#amb .bnd.b1{background:radial-gradient(40% 26% at 26% 30%,rgba(178,100,50,.30),transparent 70%);animation:ambd1 34s ease-in-out infinite alternate}
+#amb .bnd.b2{background:radial-gradient(42% 24% at 74% 46%,rgba(107,87,51,.26),transparent 70%);animation:ambd2 44s ease-in-out infinite alternate}
+#amb .bnd.b3{background:radial-gradient(36% 22% at 50% 78%,rgba(146,168,112,.32),transparent 70%);animation:ambd3 53s ease-in-out infinite alternate}
+@keyframes ambd1{from{transform:translate(-6%,-3%) rotate(-4deg)}to{transform:translate(7%,4%) rotate(5deg)}}
+@keyframes ambd2{from{transform:translate(5%,3%) rotate(3deg)}to{transform:translate(-6%,-4%) rotate(-6deg)}}
+@keyframes ambd3{from{transform:translate(-4%,4%) rotate(2deg)}to{transform:translate(5%,-3%) rotate(-3deg)}}
+/* olive grove: dappled light and leaf shadow */
+#amb .dap{filter:blur(52px);mix-blend-mode:multiply}
+#amb .dap.d1{background:radial-gradient(13% 19% at 21% 27%,rgba(146,168,112,.52),transparent 70%),radial-gradient(10% 15% at 47% 17%,rgba(107,87,51,.32),transparent 70%),radial-gradient(15% 21% at 75% 33%,rgba(146,168,112,.42),transparent 70%),radial-gradient(11% 17% at 61% 71%,rgba(178,100,50,.26),transparent 70%),radial-gradient(9% 13% at 29% 79%,rgba(107,87,51,.28),transparent 70%);animation:ambdap1 92s ease-in-out infinite alternate}
+#amb .dap.d2{background:radial-gradient(17% 23% at 39% 49%,rgba(107,87,51,.24),transparent 70%),radial-gradient(13% 19% at 79% 69%,rgba(107,87,51,.20),transparent 70%),radial-gradient(11% 15% at 14% 59%,rgba(146,168,112,.26),transparent 70%);animation:ambdap2 124s ease-in-out infinite alternate}
+@keyframes ambdap1{from{transform:rotate(-3deg) scale(1.05) translate(-2%,0)}to{transform:rotate(4deg) scale(1.12) translate(3%,2%)}}
+@keyframes ambdap2{from{transform:rotate(3deg) translate(2%,-1%)}to{transform:rotate(-4deg) translate(-3%,2%)}}
+@media(prefers-reduced-motion:reduce){#amb *{animation:none !important;transition:none !important}}
+
 /* ---------- lightbox ---------- */
 #lb{position:fixed;inset:0;z-index:200;background:rgba(24,20,11,.97);display:none;align-items:center;justify-content:center;opacity:0;transition:opacity .45s var(--ease)}
 #lb.open{display:flex}
@@ -391,6 +414,7 @@ img.ld{opacity:1 !important}
 <noscript><style>.r{opacity:1;transform:none}#veil{display:none}.hero-in .logo,.hero-in .mark,.hero-in .meta{opacity:1}.cover h2 span{transform:none}img{opacity:1 !important}</style></noscript>
 </head>
 <body>
+<div id="amb" aria-hidden="true"></div>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
   <symbol id="i-van" viewBox="0 0 36 18"><g transform="translate(36,0) scale(-1,1)"><path d="M3.8 12.6h28.4a1 1 0 0 0 1-1V6.2a1.6 1.6 0 0 0-1.6-1.6H9.4c-.5 0-1 .2-1.3.6L4 9.5c-.4.4-.6.9-.6 1.4v.7a1 1 0 0 0 .4 1z" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linejoin="round"/><path d="M9.3 5.2l-3.6 4.4h8.4V5.2M17.5 5.2v4.4M25 5.2v4.4" fill="none" stroke="currentColor" stroke-width="1.05"/><circle cx="10.5" cy="13.4" r="2.3" fill="var(--cream)" stroke="currentColor" stroke-width="1.35"/><circle cx="26.5" cy="13.4" r="2.3" fill="var(--cream)" stroke="currentColor" stroke-width="1.35"/></g></symbol>
   <symbol id="i-boat" viewBox="0 0 36 20"><path d="M4 10.5h28l-3.6 4.4H7.4z" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linejoin="round"/><path d="M12.5 10.5V6.2h9.2l3.3 4.3M15.5 6.2V3.4h3.6" fill="none" stroke="currentColor" stroke-width="1.15" stroke-linejoin="round"/><path d="M2 18c2-1.6 4-1.6 6 0s4 1.6 6 0 4-1.6 6 0 4 1.6 6 0 4-1.6 6 0" fill="none" stroke="#8fb3c4" stroke-width="1.25" stroke-linecap="round"/></symbol>
@@ -531,36 +555,36 @@ img.ld{opacity:1 !important}
       <g class="veh on-sage rv" data-at="0.88" transform="translate(1030,330)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
       <g class="act rv" data-at="0.46" transform="translate(792,462)"><g class="bob"><circle r="16"/><use href="#i-boat" x="-14" y="-9" width="28" height="16"/></g></g>
     </svg>
-      <svg class="rm rmap-m" id="rmm" viewBox="0 0 400 1000" role="img" aria-label="The route: Venice, Asolo, Lucca with a day trip to the Cinque Terre, Poreta and Scheggino">
+      <svg class="rm rmap-m" id="rmm" viewBox="0 0 400 1100" role="img" aria-label="The route: Venice, Asolo, Lucca with a day trip to the Cinque Terre, Poreta and Scheggino">
       <g class="bandg">
-        <rect class="band" x="0" y="20" width="400" height="280" rx="6"/><rect class="band b2" x="0" y="312" width="400" height="348" rx="6"/><rect class="band" x="0" y="672" width="400" height="308" rx="6"/>
-        <line class="brule" x1="24" y1="94" x2="200" y2="94"/><line class="brule" x1="24" y1="386" x2="200" y2="386"/><line class="brule" x1="24" y1="746" x2="200" y2="746"/>
+        <rect class="band" x="0" y="20" width="400" height="280" rx="6"/><rect class="band b2" x="0" y="312" width="400" height="408" rx="6"/><rect class="band" x="0" y="732" width="400" height="328" rx="6"/>
+        <line class="brule" x1="24" y1="94" x2="200" y2="94"/><line class="brule" x1="24" y1="386" x2="200" y2="386"/><line class="brule" x1="24" y1="806" x2="200" y2="806"/>
         <text class="rg" x="24" y="62">Veneto</text><text class="rgs" x="24" y="82">Part one &middot; 14 to 18 June</text>
         <text class="rg" x="24" y="354">Tuscany</text><text class="rgs" x="24" y="374">Part two &middot; 18 to 22 June</text>
-        <text class="rg" x="24" y="714">Umbria</text><text class="rgs" x="24" y="734">Part three &middot; 22 to 27 June</text>
+        <text class="rg" x="24" y="774">Umbria</text><text class="rgs" x="24" y="794">Part three &middot; 22 to 27 June</text>
       </g>
-      <path class="ghost" d="M 250 245 L 250 910"/>
+      <path class="ghost" d="M 250 245 L 250 990"/>
       <path class="pre" data-pre d="M 250 130 L 250 245"/>
-      <path class="route" data-main d="M 250 245 L 250 910"/>
-      <path class="route" data-spur data-spur-at="0.278" data-spur-len="0.1" d="M 250 430 C 250 470, 290 500, 330 520"/>
+      <path class="route" data-main d="M 250 245 L 250 990"/>
+      <path class="route" data-spur data-spur-at="0.248" data-spur-len="0.09" d="M 250 430 C 250 485, 212 520, 165 545"/>
       <circle class="mk" data-mk r="4.5" cx="250" cy="245"/>
-      <clipPath id="rmmclip"><rect x="262" y="560" width="132" height="60"/></clipPath>
-      <g class="rv" data-at="0.36" clip-path="url(#rmmclip)"><g class="seag">
-        <path class="sea" d="M 258 582 q 8 -6 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0"/>
-        <path class="sea" d="M 274 598 q 8 -6 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0" opacity=".45"/>
+      <clipPath id="rmmclip"><rect x="6" y="630" width="238" height="44"/></clipPath>
+      <g class="rv" data-at="0.33" clip-path="url(#rmmclip)"><g class="seag">
+        <path class="sea" d="M -8 648 q 8 -6 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0"/>
+        <path class="sea" d="M 8 664 q 8 -6 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0" opacity=".45"/>
       </g></g>
       <g class="rv" data-at="-1"><circle class="stop" cx="250" cy="130" r="6.5"/><line class="tick" x1="234" y1="130" x2="242" y2="130"/><text class="k" x="226" y="117" text-anchor="end">13 June</text><text class="n" x="226" y="136" text-anchor="end">Venice <tspan class="ast" data-ast role="button" tabindex="0" aria-label="About the Venice evening">*</tspan></text><text class="s" x="226" y="153" text-anchor="end">Optional informal gathering</text></g>
       <g class="rv" data-at="0"><circle class="stop" cx="250" cy="245" r="6.5"/><line class="tick" x1="234" y1="245" x2="242" y2="245"/><text class="k" x="226" y="232" text-anchor="end">14 to 18 June</text><text class="n" x="226" y="251" text-anchor="end">Asolo</text><text class="s" x="226" y="268" text-anchor="end"><a class="hl" href="https://albergoalsoleasolo.com" target="_blank" rel="noopener"><tspan>Albergo al Sole</tspan></a> &middot; 4 nights</text></g>
-      <g class="rv" data-at="0.278"><circle class="stop" cx="250" cy="430" r="6.5"/><line class="tick" x1="234" y1="430" x2="242" y2="430"/><text class="k" x="226" y="417" text-anchor="end">18 to 22 June</text><text class="n" x="226" y="436" text-anchor="end">Lucca</text><text class="s" x="226" y="453" text-anchor="end"><a class="hl" href="https://thetuscanian.com" target="_blank" rel="noopener"><tspan>The Tuscanian</tspan></a> &middot; 4 nights</text></g>
-      <g class="rv" data-at="0.36"><circle class="stop" cx="330" cy="520" r="6.5"/><text class="k" x="226" y="512" text-anchor="end">Day trip from Lucca</text><text class="n" x="226" y="531" text-anchor="end">Cinque Terre</text><text class="s" x="226" y="548" text-anchor="end">by boat along the coast</text></g>
-      <g class="rv" data-at="0.82"><circle class="stop" cx="250" cy="790" r="6.5"/><line class="tick" x1="234" y1="790" x2="242" y2="790"/><text class="k" x="226" y="777" text-anchor="end">22 to 25 June</text><text class="n" x="226" y="796" text-anchor="end">Poreta</text><text class="s" x="226" y="813" text-anchor="end"><a class="hl" href="https://leterrediporeta.it" target="_blank" rel="noopener"><tspan>Borgo della Marmotta</tspan></a> &middot; 3 nights</text></g>
-      <g class="rv" data-at="0.985"><circle class="stop" cx="250" cy="910" r="6.5"/><line class="tick" x1="234" y1="910" x2="242" y2="910"/><text class="k" x="226" y="897" text-anchor="end">25 to 27 June</text><text class="n" x="226" y="916" text-anchor="end">Scheggino</text><text class="s" x="226" y="933" text-anchor="end"><a class="hl" href="https://torredelnera.it" target="_blank" rel="noopener"><tspan>Torre del Nera</tspan></a> &middot; 2 nights</text></g>
+      <g class="rv" data-at="0.248"><circle class="stop" cx="250" cy="430" r="6.5"/><line class="tick" x1="234" y1="430" x2="242" y2="430"/><text class="k" x="226" y="417" text-anchor="end">18 to 22 June</text><text class="n" x="226" y="436" text-anchor="end">Lucca</text><text class="s" x="226" y="453" text-anchor="end"><a class="hl" href="https://thetuscanian.com" target="_blank" rel="noopener"><tspan>The Tuscanian</tspan></a> &middot; 4 nights</text></g>
+      <g class="rv" data-at="0.33"><circle class="stop" cx="165" cy="545" r="6.5"/><text class="k" x="236" y="575" text-anchor="end">Day trip from Lucca</text><text class="n" x="236" y="594" text-anchor="end">Cinque Terre</text><text class="s" x="236" y="611" text-anchor="end">Boat along the coast</text></g>
+      <g class="rv" data-at="0.812"><circle class="stop" cx="250" cy="850" r="6.5"/><line class="tick" x1="234" y1="850" x2="242" y2="850"/><text class="k" x="226" y="837" text-anchor="end">22 to 25 June</text><text class="n" x="226" y="856" text-anchor="end">Poreta</text><text class="s" x="226" y="873" text-anchor="end"><a class="hl" href="https://leterrediporeta.it" target="_blank" rel="noopener"><tspan>Borgo della Marmotta</tspan></a> &middot; 3 nights</text></g>
+      <g class="rv" data-at="0.985"><circle class="stop" cx="250" cy="990" r="6.5"/><line class="tick" x1="234" y1="990" x2="242" y2="990"/><text class="k" x="226" y="977" text-anchor="end">25 to 27 June</text><text class="n" x="226" y="996" text-anchor="end">Scheggino</text><text class="s" x="226" y="1013" text-anchor="end"><a class="hl" href="https://torredelnera.it" target="_blank" rel="noopener"><tspan>Torre del Nera</tspan></a> &middot; 2 nights</text></g>
       <g class="veh on-sage rv" data-at="-1" transform="translate(250,188)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
-      <g class="veh rv" data-at="0.092" transform="translate(250,306)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
-      <g class="veh rv" data-at="0.33" transform="translate(284,472)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
-      <g class="veh rv" data-at="0.633" transform="translate(250,666)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
-      <g class="veh on-sage rv" data-at="0.91" transform="translate(250,850)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
-      <g class="act rv" data-at="0.4" transform="translate(352,584)"><g class="bob"><circle r="16"/><use href="#i-boat" x="-14" y="-9" width="28" height="16"/></g></g>
+      <g class="veh rv" data-at="0.125" transform="translate(250,338)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
+      <g class="veh rv" data-at="0.30" transform="translate(212,492)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
+      <g class="veh rv" data-at="0.646" transform="translate(250,726)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
+      <g class="veh on-sage rv" data-at="0.906" transform="translate(250,920)"><circle r="17"/><use href="#i-van" x="-15" y="-8" width="30" height="15"/></g>
+      <g class="act rv" data-at="0.36" transform="translate(112,650)"><g class="bob"><circle r="16"/><use href="#i-boat" x="-14" y="-9" width="28" height="16"/></g></g>
     </svg>
       <div class="rtip" id="venice-tip" role="tooltip"><b>Before the tour begins.</b> Antonella will come to Venice on the evening of 13 June to meet those arriving there, so the group can gather informally and travel together by private transfer to Asolo the next morning. That transfer is included. Accommodation, meals, drinks and any other expenses in Venice before 14 June are at your own expense, and you may instead make your own way directly to Asolo.</div>
     </div>
@@ -1156,6 +1180,78 @@ img.ld{opacity:1 !important}
   document.querySelectorAll('nav ul a').forEach(function(a){
     a.addEventListener('click', function(){ nav.classList.remove('open'); burger.setAttribute('aria-expanded','false'); document.body.style.overflow = ''; });
   });
+
+  /* ---- ambient background: a slow playlist of studies, driven by the wall clock so the
+     page carries on where it left off rather than restarting on every visit ---- */
+  (function(){
+    var root = document.getElementById('amb'); if(!root) return;
+    var MARKUP = {
+      still: '',
+      goldenhour: '<div class="bnd b1"></div><div class="bnd b2"></div><div class="bnd b3"></div>',
+      grove: '<div class="dap d1"></div><div class="dap d2"></div>',
+      pollen: '<canvas></canvas>'
+    };
+    var PLAY = [ {id:'still',sec:9}, {id:'goldenhour',sec:30}, {id:'grove',sec:34}, {id:'pollen',sec:26} ];
+    var FADE = 2600, W = {}, current = null, timer = null, loop = null;
+    Object.keys(MARKUP).forEach(function(id){
+      var w = document.createElement('div'); w.className = 'st'; w.hidden = true; w.innerHTML = MARKUP[id];
+      root.appendChild(w); W[id] = w;
+    });
+    function seeded(n){ var a=n>>>0; return function(){ a+=0x6D2B79F5; var t=a; t=Math.imul(t^(t>>>15),t|1); t^=t+Math.imul(t^(t>>>7),t|61); return ((t^(t>>>14))>>>0)/4294967296; }; }
+    function wrapv(v,lo,hi){ var s=hi-lo; return lo+((((v-lo)%s)+s)%s); }
+    /* CSS animations start where the clock is, so two visits never show the same opening frame */
+    function phase(w){
+      w.querySelectorAll('*').forEach(function(el){
+        var cs=getComputedStyle(el); if(!cs.animationName||cs.animationName==='none') return;
+        var d=parseFloat(cs.animationDuration)*(/ms$/.test(cs.animationDuration)?0.001:1); if(!d) return;
+        var per=/alternate/.test(cs.animationDirection)?d*2:d;
+        el.style.animationDelay=(-((Date.now()/1000)%per)).toFixed(3)+'s';
+      });
+    }
+    /* pollen drifting on the warm air */
+    function pollen(on){
+      var c = W.pollen.querySelector('canvas'); if(!c) return;
+      if(!on){ if(loop) cancelAnimationFrame(loop); loop=null; return; }
+      if(loop) return;
+      var ctx=c.getContext('2d'), st={};
+      function size(){ var d=Math.min(devicePixelRatio||1,1.5); st.W=c.clientWidth||innerWidth; st.H=c.clientHeight||innerHeight; c.width=st.W*d; c.height=st.H*d; ctx.setTransform(d,0,0,d,0,0);
+        var r=seeded(41), n=Math.round(Math.min(26,Math.max(12,(st.W*st.H)/46000))); st.p=[];
+        for(var i=0;i<n;i++) st.p.push({bx:r(),by:r(),r:1.5+r()*1.7,ph:r()*6.28,sp:0.15+r()*0.25,rot:r()*6.28}); }
+      st.size=size; size(); pollen.size=size;
+      function frame(){
+        var s=Date.now()/1000; ctx.clearRect(0,0,st.W,st.H);
+        st.p.forEach(function(d){
+          var x=wrapv(d.bx*st.W+24*d.sp*s,-24,st.W+24), y=wrapv(d.by*st.H-2.2*s+Math.sin(s/2.2+d.ph)*9,-24,st.H+24);
+          ctx.save(); ctx.translate(x,y); ctx.rotate(d.rot+s*0.22);
+          ctx.strokeStyle='rgba(107,87,51,0.24)'; ctx.lineWidth=0.7;
+          for(var k=0;k<7;k++){ var a=k*0.8976; ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(Math.cos(a)*d.r*4,Math.sin(a)*d.r*4); ctx.stroke(); }
+          ctx.fillStyle='rgba(178,100,50,0.42)'; ctx.beginPath(); ctx.arc(0,0,d.r*0.6,0,6.2832); ctx.fill(); ctx.restore();
+        });
+        loop=requestAnimationFrame(frame);
+      }
+      if(reduce){ frame(); cancelAnimationFrame(loop); loop=null; return; }
+      frame();
+    }
+    addEventListener('resize', function(){ if(loop && pollen.size) pollen.size(); }, {passive:true});
+    function show(id,ms){ var w=W[id]; if(!w) return; w.hidden=false; if(id==='pollen') pollen(true); phase(w); w.style.transitionDuration=ms+'ms'; void w.offsetWidth; w.classList.add('on'); }
+    function hide(id,ms){ var w=W[id]; if(!w) return; w.style.transitionDuration=ms+'ms'; w.classList.remove('on');
+      setTimeout(function(){ if(current!==id){ w.hidden=true; if(id==='pollen') pollen(false); } }, ms+80); }
+    function cycleLen(){ return PLAY.reduce(function(a,i){ return a+i.sec; },0); }
+    function at(t){ var ph=(t/1000)%cycleLen(), acc=0;
+      for(var i=0;i<PLAY.length;i++){ if(ph<acc+PLAY[i].sec) return {id:PLAY[i].id,into:ph-acc,left:acc+PLAY[i].sec-ph}; acc+=PLAY[i].sec; }
+      return {id:PLAY[0].id,into:0,left:PLAY[0].sec}; }
+    function tick(){
+      clearTimeout(timer); var s=at(Date.now());
+      if(s.id!==current){ var prev=current; current=s.id; if(prev) hide(prev,FADE); show(current, prev===null?0:FADE); }
+      timer=setTimeout(tick, Math.max(120, s.left*1000));
+    }
+    document.addEventListener('visibilitychange', function(){
+      if(document.hidden){ clearTimeout(timer); if(loop){ cancelAnimationFrame(loop); loop=null; } }
+      else { if(current==='pollen') pollen(true); tick(); }
+    });
+    if(reduce){ show('goldenhour',0); current='goldenhour'; return; }
+    tick();
+  })();
 
   /* ---- lightbox ---- */
   var lb = document.getElementById('lb'), lbImg = lb.querySelector('img'), lbc = document.getElementById('lbc');
