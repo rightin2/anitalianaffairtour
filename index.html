@@ -11,6 +11,17 @@
 <meta property="og:image" content="img/umbria-terrace-lg.webp">
 <meta name="theme-color" content="#eef5e9">
 <link rel="icon" href="img/favicon.png">
+<!-- Meta Pixel. Paste the Pixel ID from Meta Events Manager into META_PIXEL_ID to switch it on; left empty, nothing loads. -->
+<script>
+window.META_PIXEL_ID = '';
+if (window.META_PIXEL_ID) {
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', window.META_PIXEL_ID);
+  fbq('track', 'PageView');
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500&family=IBM+Plex+Sans+Condensed:wght@500;600&display=swap">
@@ -886,6 +897,7 @@ img.ld{opacity:1 !important}
     </div>
     <a class="btn" href="mailto:antonella@anitalianaffair.com.au?subject=La%20mia%20Italia%20Tour%202027">Enquire about 2027</a>
     <div class="abn">ABN 57271392601</div>
+    <div class="abn" id="pixel-note" hidden>This site uses the Meta Pixel to measure our advertising.</div>
   </div>
 </section>
 
@@ -1332,6 +1344,31 @@ img.ld{opacity:1 !important}
   var sx = null;
   lb.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; }, {passive:true});
   lb.addEventListener('touchend', function(e){ if(sx === null) return; var dx = e.changedTouches[0].clientX - sx; sx = null; if(Math.abs(dx) > 48) open(dx < 0 ? at+1 : at-1); }, {passive:true});
+})();
+</script>
+<script>
+/* Meta Pixel events: who reached the itinerary and the pricing, and who got in touch. Does nothing while the Pixel is off. */
+(function(){
+  if (!window.META_PIXEL_ID || !window.fbq) return;
+  document.getElementById('pixel-note').hidden = false;
+  var seen = {};
+  var watch = [['journey','La mia Italia 2027 itinerary'], ['practical','La mia Italia 2027 pricing and details']];
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        var id = en.target.id;
+        if (en.isIntersecting && !seen[id]) { seen[id] = 1; var w = watch.filter(function(x){return x[0]===id;})[0];
+          fbq('track', 'ViewContent', {content_name: w[1], content_category: 'tour'}); io.unobserve(en.target); }
+      });
+    }, {rootMargin: '-45% 0px -45% 0px', threshold: 0});   /* fires when the section crosses the middle of the screen, however tall it is */
+    watch.forEach(function(w){ var el = document.getElementById(w[0]); if (el) io.observe(el); });
+  }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a[href^="mailto:"], a[href^="tel:"]');
+    if (!a) return;
+    if (a.getAttribute('href').indexOf('mailto:') === 0) fbq('track', 'Lead', {content_name: 'La mia Italia 2027 enquiry', method: 'email'});
+    else fbq('track', 'Contact', {content_name: 'La mia Italia 2027 enquiry', method: 'phone'});
+  }, true);
 })();
 </script>
 </body>
